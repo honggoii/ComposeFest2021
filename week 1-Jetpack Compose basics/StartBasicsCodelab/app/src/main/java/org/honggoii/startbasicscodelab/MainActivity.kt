@@ -1,5 +1,6 @@
 package org.honggoii.startbasicscodelab
 
+import android.content.res.Configuration.UI_MODE_NIGHT_YES
 import android.graphics.Color
 import android.os.Bundle
 import androidx.activity.ComponentActivity
@@ -19,6 +20,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.*
 import androidx.compose.ui.graphics.Color.Companion.Green
 import androidx.compose.ui.graphics.Color.Companion.Red
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import org.honggoii.startbasicscodelab.ui.theme.StartBasicsCodelabTheme
@@ -93,7 +95,7 @@ fun OnboardingPreview() {
 @Composable
 fun Greeting(name: String) {
     var expanded by remember { mutableStateOf(false)}
-    
+
     val extraPadding by animateDpAsState(
         if (expanded) 48.dp else 0.dp,
         animationSpec = spring(
@@ -112,7 +114,9 @@ fun Greeting(name: String) {
                 .padding(bottom = extraPadding.coerceAtLeast(0.dp))
             ) {
                 Text(text = "Hello, ")
-                Text(text = name)
+                Text(text = name, style = MaterialTheme.typography.h4.copy(
+                    fontWeight = FontWeight.ExtraBold
+                ))
             }
             OutlinedButton(
                 onClick = { expanded = !expanded }
@@ -123,6 +127,12 @@ fun Greeting(name: String) {
     }
 }
 
+@Preview(
+    showBackground = true,
+    widthDp = 320,
+    uiMode = UI_MODE_NIGHT_YES,
+    name = "DefaultPreviewDark"
+)
 @Preview(showBackground = true, widthDp = 320)
 @Composable
 fun DefaultPreview() {
