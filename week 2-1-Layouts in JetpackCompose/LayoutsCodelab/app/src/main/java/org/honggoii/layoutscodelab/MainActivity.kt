@@ -119,13 +119,13 @@ fun Chip(modifier: Modifier = Modifier, text: String) {
     }
 }
 
-@Preview
-@Composable
-fun ChipPreview() {
-    LayoutsCodelabTheme {
-        Chip(text= "Hi there")
-    }
-}
+//@Preview
+//@Composable
+//fun ChipPreview() {
+//    LayoutsCodelabTheme {
+//        Chip(text= "Hi there")
+//    }
+//}
 
 @Composable
 fun MyOwnColumn(
@@ -170,21 +170,21 @@ fun Modifier.firstBaselineToTop(
     }
 )
 
-@Preview
-@Composable
-fun TextWithPaddingToBaselinePreview() {
-    LayoutsCodelabTheme() {
-        Text("Hi there!", Modifier.firstBaselineToTop(32.dp))
-    }
-}
+//@Preview
+//@Composable
+//fun TextWithPaddingToBaselinePreview() {
+//    LayoutsCodelabTheme() {
+//        Text("Hi there!", Modifier.firstBaselineToTop(32.dp))
+//    }
+//}
 
-@Preview
-@Composable
-fun TextWithNormalPaddingPreview() {
-    LayoutsCodelabTheme() {
-        Text("Hi there!", Modifier.padding(top = 32.dp))
-    }
-}
+//@Preview
+//@Composable
+//fun TextWithNormalPaddingPreview() {
+//    LayoutsCodelabTheme() {
+//        Text("Hi there!", Modifier.padding(top = 32.dp))
+//    }
+//}
 
 @Composable
 fun SimpleList() {
@@ -230,13 +230,13 @@ fun ImageList() {
 
 }
 
-@Preview
-@Composable
-fun LazyListPreview() {
-    LayoutsCodelabTheme {
-        ImageList()
-    }
-}
+//@Preview
+//@Composable
+//fun LazyListPreview() {
+//    LayoutsCodelabTheme {
+//        ImageList()
+//    }
+//}
 
 @Composable
 fun ImageListItem(index: Int) {
@@ -297,7 +297,11 @@ val topics = listOf(
 
 @Composable
 fun BodyContent(modifier: Modifier = Modifier) {
-    Row(modifier = modifier.horizontalScroll(rememberScrollState())) {
+    Row(modifier = modifier
+        .background(color = Color.LightGray)
+        .size(200.dp)
+        .padding(16.dp)
+        .horizontalScroll(rememberScrollState())) {
         StaggeredGrid(modifier = modifier, rows = 5) {
             for (topic in topics) {
                 Chip(modifier = Modifier.padding(8.dp), text = topic)
@@ -432,13 +436,13 @@ fun PhotographerCard(modifier: Modifier = Modifier) {
     }
 }
 
-@Preview
-@Composable
-fun PhotographerCardPreview() {
-    LayoutsCodelabTheme {
-        PhotographerCard()
-    }
-}
+//@Preview
+//@Composable
+//fun PhotographerCardPreview() {
+//    LayoutsCodelabTheme {
+//        PhotographerCard()
+//    }
+//}
 
 //@Composable
 //fun Greeting(name: String) {
