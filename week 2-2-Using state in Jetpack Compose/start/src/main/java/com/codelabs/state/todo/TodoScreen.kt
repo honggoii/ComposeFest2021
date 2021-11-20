@@ -116,9 +116,9 @@ fun TodoInputTextField(text: String, onTextChange: (String) -> Unit, modifier:Mo
     TodoInputText(text = text, onTextChange = onTextChange, modifier)
 }
 
+// state
 @Composable
-fun TodoItemInput(onItemComplete: (TodoItem) -> Unit) {
-    // onItemComplete: When the user completes a TodoItem the event will be triggered.
+fun TodoItemEntryInput(onItemComplete: (TodoItem) -> Unit) {
     val (text, setText) = remember { mutableStateOf("")}
     val (icon, setIcon) = remember { mutableStateOf(TodoIcon.Default) } // currently selected icon.
     val iconsVisible = text.isNotBlank()
@@ -127,6 +127,34 @@ fun TodoItemInput(onItemComplete: (TodoItem) -> Unit) {
         setIcon(TodoIcon.Default)
         setText("")
     }
+    TodoItemInput(
+        text = text,
+        onTextChange = setText,
+        icon = icon,
+        onIconChange = setIcon,
+        submit = submit,
+        iconsVisible = iconsVisible
+    )
+}
+
+// stateless
+@Composable
+fun TodoItemInput(
+    text: String,
+    onTextChange: (String) -> Unit,
+    icon: TodoIcon,
+    onIconChange: (TodoIcon) -> Unit,
+    submit: () -> Unit,
+    iconsVisible: Boolean) {
+    // onItemComplete: When the user completes a TodoItem the event will be triggered.
+//    val (text, setText) = remember { mutableStateOf("")}
+//    val (icon, setIcon) = remember { mutableStateOf(TodoIcon.Default) } // currently selected icon.
+//    val iconsVisible = text.isNotBlank()
+//    val submit = {
+//        onItemComplete(TodoItem(text, icon))
+//        setIcon(TodoIcon.Default)
+//        setText("")
+//    }
 
     Column {
         Row(
@@ -135,12 +163,12 @@ fun TodoItemInput(onItemComplete: (TodoItem) -> Unit) {
                 .padding(top = 16.dp)
         ) {
             TodoInputText(
-                text = text,
-                onTextChange = setText,
-                modifier = Modifier
+                text,
+                onTextChange,
+                Modifier
                     .weight(1f)
                     .padding(end = 8.dp),
-                onImeAction = submit
+                submit
             )
             TodoEditButton(
                 onClick = submit,
@@ -150,7 +178,7 @@ fun TodoItemInput(onItemComplete: (TodoItem) -> Unit) {
             )
         }
         if (iconsVisible) {
-            AnimatedIconRow(icon = icon, onIconChange = setIcon, Modifier.padding(top = 8.dp))
+            AnimatedIconRow(icon = icon, onIconChange = onIconChange, Modifier.padding(top = 8.dp))
         } else {
             Spacer(modifier = Modifier.height(16.dp))
         }
