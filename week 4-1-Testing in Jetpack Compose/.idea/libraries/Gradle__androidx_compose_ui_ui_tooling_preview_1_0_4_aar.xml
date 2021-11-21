@@ -2,8 +2,8 @@
   <library name="Gradle: androidx.compose.ui:ui-tooling-preview:1.0.4@aar">
     <CLASSES>
       <root url="jar://$USER_HOME$/.gradle/caches/transforms-3/a66b66e35f01852619b1ddcd5a115322/transformed/ui-tooling-preview-1.0.4/jars/classes.jar!/" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/a66b66e35f01852619b1ddcd5a115322/transformed/ui-tooling-preview-1.0.4/res" />
       <root url="file://$USER_HOME$/.gradle/caches/transforms-3/a66b66e35f01852619b1ddcd5a115322/transformed/ui-tooling-preview-1.0.4/AndroidManifest.xml" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/a66b66e35f01852619b1ddcd5a115322/transformed/ui-tooling-preview-1.0.4/res" />
     </CLASSES>
     <JAVADOC />
     <SOURCES>
