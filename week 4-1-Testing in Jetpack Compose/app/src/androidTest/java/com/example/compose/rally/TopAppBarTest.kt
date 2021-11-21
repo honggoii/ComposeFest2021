@@ -38,10 +38,21 @@ class TopAppBarTest {
                 currentScreen = RallyScreen.Accounts)
         }
 
-        composeTestRule.onRoot().printToLog("currentLabelExists")
+//        composeTestRule.onRoot().printToLog("currentLabelExists")
+//
+//        composeTestRule
+//            .onNodeWithText(RallyScreen.Accounts.name.uppercase())
+//            .assertExists()
 
+        //composeTestRule.onRoot(useUnmergedTree = true).printToLog("currentLabelExists")
         composeTestRule
-            .onNodeWithText(RallyScreen.Accounts.name.uppercase())
+            .onNode(
+        hasText(RallyScreen.Accounts.name.uppercase()) and
+                hasParent(
+                    hasContentDescription(RallyScreen.Accounts.name)
+                ),
+                useUnmergedTree = true
+            )
             .assertExists()
     }
 }
