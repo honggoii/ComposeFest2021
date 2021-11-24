@@ -128,6 +128,7 @@ private fun PlantDescription(description: String) {
 //private fun PlantDescriptionPreview() {
 //    val plant = Plant("id", "Apple", "HTML<br><br>description", 3, 30, "")
 //    MaterialTheme {
+//    MdcTheme{
 //        PlantDetailContent(plant)
 //    }
 //}
@@ -136,15 +137,17 @@ private fun PlantDescription(description: String) {
 //@Composable
 //private fun PlantWateringPreview(){
 //    MaterialTheme {
+//    MdcTheme{
 //        PlantWatering(wateringInterval = 7)
 //    }
 //}
 
-//@Preview
+//@Preview(uiMode = Configuration.UI_MODE_NIGHT_YES)
 //@Composable
 //private fun PlantNDetailContentPreview() {
 //    val plant = Plant("id", "Apple", "description", 3, 30, "")
 //    MaterialTheme {
+//    MdcTheme{
 //        PlantDetailContent(plant = plant)
 //        //PlantName("Apple")
 //    }
@@ -154,6 +157,7 @@ private fun PlantDescription(description: String) {
 //@Composable
 //private fun PlantNamePreview() {
 //    MaterialTheme {
+//    MdcTheme{
 //        PlantName("Apple")
 //    }
 //}
